@@ -18,4 +18,14 @@ public class UserEntity {
     @Column
     private long userNo;
 
+    @Column
+    private String userId;
+
+    @Column
+    private String userGrade;
+
+    @Column
+    private String userSavedMoney;
+
 }
+
