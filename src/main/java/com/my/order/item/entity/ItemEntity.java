@@ -1,5 +1,6 @@
 package com.my.order.item.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import javax.persistence.Column;
@@ -24,4 +25,20 @@ public class ItemEntity {
 
     @Column
     private String itemCategory;
+
+    @Builder
+    public ItemEntity(String itemTitle,String itemPrice, String itemCategory){
+        this.itemTitle=itemTitle;
+        this.itemPrice=itemPrice;
+        this.itemCategory=itemCategory;
+    }
+
+    public void UpdateTitle(String itemTitle){
+        this.itemTitle=itemTitle;
+    }
+
+    public void UpdatePrice(String itemPrice){
+        this.itemPrice=itemPrice;
+    }
+
 }
