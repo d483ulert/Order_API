@@ -15,17 +15,6 @@ public class OrderController {
     private final ItemService itemService;
     private final UserService userService;
 
-
-    @PostMapping("basketAdd")
-    public void basketAdd(Long itemNo,Long userNo){
-
-    }
-
-    @PostMapping("basketCancle")
-    public void basketCancle(){
-
-    }
-
     @PostMapping("buy")
     public void orderBuy(){
 
