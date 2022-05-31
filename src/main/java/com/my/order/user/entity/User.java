@@ -12,25 +12,25 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @NoArgsConstructor
-public class UserEntity {
+public class User {
 
     @Id
     @GeneratedValue
     @Column
     private long userNo;
 
-    @Column
+    @Column //회원ID
     private String userId;
 
-    @Column
+    @Column //회원등급
     private String userGrade;
 
-    @Column
+    @Column //회원 적립금
     private String userSavedMoney;
 
 
     @Builder
-    public UserEntity(String userId,String userGrade, String userSavedMoney){
+    public User(String userId, String userGrade, String userSavedMoney){
         this.userId=userId;
         this.userGrade=userGrade;
         this.userSavedMoney=userSavedMoney;

@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 @Entity
 @Getter
 @NoArgsConstructor
-public class ItemEntity {
+public class Item {
 
 
     @Column
@@ -27,7 +27,7 @@ public class ItemEntity {
     private String itemCategory;
 
     @Builder
-    public ItemEntity(String itemTitle,String itemPrice, String itemCategory){
+    public Item(String itemTitle, String itemPrice, String itemCategory){
         this.itemTitle=itemTitle;
         this.itemPrice=itemPrice;
         this.itemCategory=itemCategory;

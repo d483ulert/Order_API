@@ -1,11 +1,11 @@
 package com.my.order.user.service;
 
-import com.my.order.user.entity.UserEntity;
+import com.my.order.user.entity.User;
 import java.util.List;
 
 public interface UserService {
 
-    public List<UserEntity> list();
+    public List<User> list();
 
     public void itemAdd();
 

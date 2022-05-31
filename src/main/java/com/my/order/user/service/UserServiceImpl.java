@@ -1,6 +1,6 @@
 package com.my.order.user.service;
 
-import com.my.order.user.entity.UserEntity;
+import com.my.order.user.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 @Service("userService")
 public class UserServiceImpl implements UserService{
     @Override
-    public List<UserEntity> list() {
+    public List<User> list() {
         return null;
     }
 

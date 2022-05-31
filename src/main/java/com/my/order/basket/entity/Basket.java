@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 @Entity
 @Getter
 @NoArgsConstructor
-public class BasketEntity {
+public class Basket {
 
 
     @Column
@@ -28,7 +28,7 @@ public class BasketEntity {
 
 
     @Builder
-    public BasketEntity(String userNo, String itemNo,String orderPrice){
+    public Basket(String userNo, String itemNo, String orderPrice){
         this.userNo=userNo;
         this.itemNo=itemNo;
         this.orderPrice=orderPrice;
