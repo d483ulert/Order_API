@@ -26,6 +26,9 @@ public class Item {
     @Column
     private String itemCategory;
 
+    @Column
+    private int ItemStock;
+
     @Builder
     public Item(String itemTitle, String itemPrice, String itemCategory){
         this.itemTitle=itemTitle;
@@ -33,12 +36,24 @@ public class Item {
         this.itemCategory=itemCategory;
     }
 
+    //상품 제목수정
     public void UpdateTitle(String itemTitle){
         this.itemTitle=itemTitle;
     }
 
+    //상품 가격수정
     public void UpdatePrice(String itemPrice){
         this.itemPrice=itemPrice;
+    }
+
+    //구매 후 재고수정
+    public void SellStock(Long itemNo){
+        this.ItemStock --;
+    }
+
+    //구매 취소 후 재고수정
+    public void CancleStock(int ItemStock,int cnt){
+        this.ItemStock = ItemStock-cnt;
     }
 
 }

@@ -1,8 +1,8 @@
 package com.my.order.order.service;
 
-import com.my.order.item.repository.ItemRepository;
+import com.my.order.order.entity.Order;
+import com.my.order.order.orderDTO.OrderDTO;
 import com.my.order.order.repository.OrderRepository;
-import com.my.order.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +12,16 @@ public class OrderServiceImpl implements OrderService{
 
     private final OrderRepository orderRepository;
 
-    private final UserRepository userRepository;
 
-    private final ItemRepository itemRepository;
-
-
+    @Override
+    public void add(OrderDTO orderDTO) {
+        Order order = new Order();
+        order= Order.builder()
+                .itemNo(orderDTO.getItemNo().toString())
+                .orderDate(orderDTO.getOrderDate())
+                .address(orderDTO.getAddress())
+                .priceSum(orderDTO.getPriceSum())
+                .userNo(orderDTO.getUserNo().toString())
+                .build();
+    }
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Getter
@@ -16,14 +17,14 @@ import java.time.LocalDateTime;
 public class Order {
 
     @Column
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderNo;
 
     @Column
-    private String userNo;
+    private Long userNo;
 
     @Column
-    private String itemNo;
+    private Long itemNo;
 
     @Column
     private String priceSum;
@@ -37,7 +38,7 @@ public class Order {
 
 
     @Builder
-    public Order(String userNo, String itemNo, String priceSum, String address,LocalDateTime orderDate){
+    public Order(Long userNo, Long itemNo, String priceSum, String address,LocalDateTime orderDate){
         this.userNo=userNo;
         this.itemNo=itemNo;
         this.priceSum=priceSum;

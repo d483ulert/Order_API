@@ -35,8 +35,7 @@ public class BasketController {
         BasketDTO basketDTO =new BasketDTO();
         basketDTO.setBasketNo(basketService.Duplicate(itemNo,userNo));
         if(basketDTO.getBasketNo()==1){
-            log.info("장바구니 중복");
-
+            log.info("장바구니에 상품이 이미 있습니다 추가하시겠습니까?");
         }else{
             basketService.Add(itemNo,userNo,orderPrice);
         }

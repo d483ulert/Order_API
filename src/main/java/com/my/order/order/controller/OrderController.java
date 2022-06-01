@@ -1,8 +1,8 @@
 package com.my.order.order.controller;
 
-import com.my.order.item.service.ItemService;
+import com.my.order.item.entity.Item;
+import com.my.order.order.orderDTO.OrderDTO;
 import com.my.order.order.service.OrderService;
-import com.my.order.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class OrderController {
 
     private final OrderService orderService;
-    private final ItemService itemService;
-    private final UserService userService;
 
     @PostMapping("buy")
-    public void orderBuy(){
+    public void orderBuy(OrderDTO orderDTO) {
+        int cnt=0;
+        Item item =new Item();
 
+
+        orderService.add(orderDTO);
     }
 
     @PostMapping("cancle")
