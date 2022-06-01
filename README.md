@@ -14,8 +14,8 @@
 # orderhist - 주문이력관리 <br>
 
 <h2> 구현내용 <h2> <br>
-# basket : 장바구니 추가, 삭제, 장바구니 추가시 상품 중복체크
-# item : 주문처리 시 재고관리
-# order : 주문, 주문취소
-# orderhist : 주문이력관리
+# basket : 장바구니 추가, 삭제, 장바구니 추가시 상품 중복체크 <br>
+# item : 주문처리 시 재고관리 <br>
+# order : 주문, 주문취소 <br>
+# orderhist : 주문이력관리 <br>
   
