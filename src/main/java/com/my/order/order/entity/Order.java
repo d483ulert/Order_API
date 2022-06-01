@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -16,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Order {
 
+    @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderNo;
