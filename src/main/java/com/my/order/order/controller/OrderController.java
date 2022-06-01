@@ -19,11 +19,10 @@ public class OrderController {
     @PostMapping("buy")
     public void orderBuy(OrderDTO orderDTO) {
         ItemDTO iTemDTO =new ItemDTO();
-        Item item = new Item();
 
         for(int i=0; i<iTemDTO.getItemList().size(); i++){
-            Long itemNo = iTemDTO.getItemList().get(i).getItemNo();
-            item.SellStock(itemNo);
+            Item item = itemRepository.getById(iTemDTO.getItemList().get(i).getItemNo());
+            item.SellStock(item.getItemStock());
         }
 
         orderService.add(orderDTO);

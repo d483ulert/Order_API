@@ -47,7 +47,7 @@ public class Item {
     }
 
     //구매 후 재고수정
-    public void SellStock(Long ItemStock){
+    public void SellStock(int ItemStock){
         this.ItemStock --;
     }
 
