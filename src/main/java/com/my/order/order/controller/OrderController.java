@@ -8,6 +8,7 @@ import com.my.order.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RequiredArgsConstructor
 @Controller
@@ -17,7 +18,7 @@ public class OrderController {
     private final ItemRepository itemRepository;
 
     @PostMapping("buy")
-    public void orderBuy(OrderDTO orderDTO) {
+    public void orderBuy(@RequestBody OrderDTO orderDTO) {
         ItemDTO iTemDTO =new ItemDTO();
 
         for(int i=0; i<iTemDTO.getItemList().size(); i++){
@@ -29,7 +30,7 @@ public class OrderController {
     }
 
     @PostMapping("cancle")
-    public void orderCancle(OrderDTO orderDTO){
+    public void orderCancle(@RequestBody OrderDTO orderDTO){
         orderService.delete(orderDTO);
     }
 }
