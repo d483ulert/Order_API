@@ -1,6 +1,8 @@
 package com.my.order.order.controller;
 
+import com.my.order.item.dto.ItemDTO;
 import com.my.order.item.entity.Item;
+import com.my.order.item.repository.ItemRepository;
 import com.my.order.order.orderDTO.OrderDTO;
 import com.my.order.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -12,12 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class OrderController {
 
     private final OrderService orderService;
+    private final ItemRepository itemRepository;
 
     @PostMapping("buy")
     public void orderBuy(OrderDTO orderDTO) {
-        int cnt=0;
-        Item item =new Item();
+        ItemDTO iTemDTO =new ItemDTO();
+        Item item = new Item();
 
+        for(int i=0; i<iTemDTO.getItemList().size(); i++){
+            Long itemNo = iTemDTO.getItemList().get(i).getItemNo();
+            item.SellStock(itemNo);
+        }
 
         orderService.add(orderDTO);
     }
