@@ -18,17 +18,17 @@ public class Basket {
     private Long basketNo;
 
     @Column
-    private String userNo;
+    private Long userNo;
 
     @Column
-    private String itemNo;
+    private Long itemNo;
 
     @Column
     private String orderPrice;
 
 
     @Builder
-    public Basket(String userNo, String itemNo, String orderPrice){
+    public Basket(Long userNo, Long itemNo, String orderPrice){
         this.userNo=userNo;
         this.itemNo=itemNo;
         this.orderPrice=orderPrice;

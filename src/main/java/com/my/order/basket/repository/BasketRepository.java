@@ -2,12 +2,9 @@ package com.my.order.basket.repository;
 
 import com.my.order.basket.entity.Basket;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-
-import java.util.List;
 import java.util.Optional;
 
 public interface BasketRepository extends JpaRepository<Basket,Long> {
 
-    Optional<Basket> findById(String itemNo, String userNo);
+    Optional<Basket> findById(Long itemNo, Long userNo);
 }

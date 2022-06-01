@@ -3,8 +3,11 @@ package com.my.order.basket.service;
 import com.my.order.basket.entity.Basket;
 import com.my.order.basket.repository.BasketRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -14,7 +17,14 @@ public class BasketServiceImpl implements BasketService{
     private final BasketRepository basketRepository;
 
     @Override
-    public void add(String itemNo, String userNo,String orderPrice) {
+    @Transactional
+    public List<Basket> List(String userNo) {
+        return basketRepository.findAll(Sort.by(Sort.Direction.DESC,"basketNo"));
+    }
+
+    @Override
+    @Transactional
+    public void Add(Long itemNo, Long userNo,String orderPrice) {
         Basket basket =new Basket();
         basket = Basket.builder()
                 .itemNo(itemNo)
@@ -25,7 +35,8 @@ public class BasketServiceImpl implements BasketService{
     }
 
     @Override
-    public long duplicate(String itemNo, String userNo) {
+    @Transactional
+    public long Duplicate(Long itemNo, Long userNo) {
         Basket basket =new Basket();
         Optional<Basket> optionalBasket= basketRepository.findById(itemNo,userNo);
         if(optionalBasket.isPresent()){
@@ -34,5 +45,11 @@ public class BasketServiceImpl implements BasketService{
         }else{
             return 1;
         }
+    }
+
+    @Override
+    @Transactional
+    public void Delete(Long basketNo) {
+        basketRepository.deleteById(basketNo);
     }
 }

@@ -7,9 +7,9 @@ public class BasketDTO {
 
     private Long basketNo;
 
-    private String userNo;
+    private Long userNo;
 
-    private String itemNo;
+    private Long itemNo;
 
     private String orderPrice;
 

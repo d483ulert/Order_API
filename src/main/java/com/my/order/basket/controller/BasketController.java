@@ -8,34 +8,44 @@ import com.my.order.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Log4j2
 @RequiredArgsConstructor
-@Controller
+@Controller("/basket")
 public class BasketController {
 
-    private final OrderService orderService;
-    private final ItemService itemService;
-    private final UserService userService;
     private final BasketService basketService;
 
-    @PostMapping("basketAdd")
-    public void basketAdd(String itemNo,String userNo,String orderPrice){
+    @GetMapping("/list")
+    public String BasketList(Model model){
+        //세션에서 현재 User정보를 가져와 userNo값을 넣어줌.
+        model.addAttribute("data",basketService.list(userNo));
+
+        return"view";
+    }
+
+
+    @PostMapping("/add")
+    public void BasketAdd(Long itemNo,Long userNo,String orderPrice){
         // 상품이 이미 장바구니에 존재할경우
         BasketDTO basketDTO =new BasketDTO();
-        basketDTO.setBasketNo(basketService.duplicate(itemNo,userNo));
+        basketDTO.setBasketNo(basketService.Duplicate(itemNo,userNo));
         if(basketDTO.getBasketNo()==1){
             log.info("장바구니 중복");
+
         }else{
-            basketService.add(itemNo,userNo,orderPrice);
+            basketService.Add(itemNo,userNo,orderPrice);
         }
 
     }
 
-    @PostMapping("basketCancle")
-    public void basketCancle(){
-
+    @PostMapping("/delete/{basketNo}")
+    public void BasketDelete(@PathVariable Long basketNo){
+        basketService.Delete(basketNo);
     }
 
 }
