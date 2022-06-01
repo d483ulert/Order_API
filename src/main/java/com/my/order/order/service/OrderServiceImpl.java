@@ -28,6 +28,7 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
+    @Transactional
     public void delete(OrderDTO orderDTO) {
         orderRepository.deleteById(orderDTO.getOrderNo());
     }
