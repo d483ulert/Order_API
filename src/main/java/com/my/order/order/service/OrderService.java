@@ -8,5 +8,5 @@ public interface OrderService {
     //주문신청
     public void add(OrderDTO orderDTO);
 
-
+    public void delete(OrderDTO orderDTO);
 }

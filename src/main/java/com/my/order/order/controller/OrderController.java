@@ -29,7 +29,7 @@ public class OrderController {
     }
 
     @PostMapping("cancle")
-    public void orderCancle(){
-
+    public void orderCancle(OrderDTO orderDTO){
+        orderService.delete(orderDTO);
     }
 }

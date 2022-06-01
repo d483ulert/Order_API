@@ -26,4 +26,9 @@ public class OrderServiceImpl implements OrderService{
                 .userNo(orderDTO.getUserNo())
                 .build();
     }
+
+    @Override
+    public void delete(OrderDTO orderDTO) {
+        orderRepository.deleteById(orderDTO.getOrderNo());
+    }
 }
