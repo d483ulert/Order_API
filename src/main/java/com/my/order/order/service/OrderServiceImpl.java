@@ -8,11 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
-@Service("orderService")
+@Service
 public class OrderServiceImpl implements OrderService{
 
     private final OrderRepository orderRepository;
-
 
     @Override
     @Transactional

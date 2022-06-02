@@ -19,7 +19,7 @@ public class BasketTest {
     public void List(){
         Basket basket =new Basket();
 
-        Optional<Basket> optionalBasket= basketRepository.findById(1L,1L);
+        Optional<Basket> optionalBasket= basketRepository.findById(1L);
         basket =optionalBasket.get();
         System.out.println(basket);
     }

@@ -38,7 +38,7 @@ public class BasketServiceImpl implements BasketService{
     @Transactional
     public long Duplicate(Long itemNo, Long userNo) {
         Basket basket =new Basket();
-        Optional<Basket> optionalBasket= basketRepository.findById(itemNo,userNo);
+        Optional<Basket> optionalBasket= basketRepository.findById(itemNo);
         if(optionalBasket.isPresent()){
             basket =optionalBasket.get();
             return basket.getBasketNo();

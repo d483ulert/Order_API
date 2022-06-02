@@ -11,9 +11,4 @@ public class UserTest {
     @Autowired
     private UserRepository userRepository;
 
-    @Test
-    public void addItemToBasket(){
-        userRepository.findById(1L);
-    }
-
 }

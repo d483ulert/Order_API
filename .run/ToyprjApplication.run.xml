@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="ToyprjApplication" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="com.my.order.ToyprjApplication" />
+  <configuration default="false" name="OrderApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="com.my.order.OrderApplication" />
     <module name="toyprj.main" />
     <option name="VM_PARAMETERS" value="-Djava.security.egd=file:/dev/./urandom" />
     <extension name="coverage">
