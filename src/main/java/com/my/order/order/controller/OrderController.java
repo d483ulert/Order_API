@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RequiredArgsConstructor
 @Controller
+@RequestMapping("/order")
 public class OrderController {
 
     private final OrderService orderService;

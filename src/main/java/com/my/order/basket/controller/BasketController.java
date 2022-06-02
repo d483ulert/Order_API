@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RequiredArgsConstructor
-@Controller("/basket")
+@Controller
+@RequestMapping("/basket")
 public class BasketController {
 
     private final BasketService basketService;
